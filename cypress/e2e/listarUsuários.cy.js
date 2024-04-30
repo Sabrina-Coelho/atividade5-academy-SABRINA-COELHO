@@ -1,9 +1,8 @@
 describe('Listar Usuários', () => {
   beforeEach(() => {
     cy.visit('https://rarocrud-frontend-88984f6e4454.herokuapp.com/users');
-
   })
-  
+
   it('Lista vazia mostra opções de cadastro de usuário', () => {
     cy.intercept('GET', 'api/v1/users', {
       statusCode: 200,
@@ -23,6 +22,8 @@ describe('Listar Usuários', () => {
     cy.wait('@listaUsuários');
 
     cy.get('#listaUsuarios').should('be.visible');
+    cy.contains('#userData', 'Nome:');
+    cy.contains('#userData', 'E-mail:');
     cy.contains('#paginacaoAtual', '1 de 2');
   })
 })

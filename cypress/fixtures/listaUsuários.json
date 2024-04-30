@@ -1,0 +1,58 @@
+[
+  {
+    "id": "9a8a973f-7473-486f-997f-51258e09ac01",
+    "name": "Blanca Ratke",
+    "email": "sabryna.green82@hotmail.com",
+    "createdAt": "2024-04-29T19:55:37.632Z",
+    "updatedAt": "2024-04-29T19:55:37.632Z"
+  },
+  {
+    "id": "97319d5b-f019-4557-84b2-1ef4a79b4b5e",
+    "name": "Howard Franey",
+    "email": "golda.schinner@gmail.com",
+    "createdAt": "2024-04-29T19:55:38.265Z",
+    "updatedAt": "2024-04-29T19:55:38.265Z"
+  },
+  {
+    "id": "09459776-f270-4185-8679-5d48083cd092",
+    "name": "Dr. Alfredo Abernathy",
+    "email": "hellen.funk@yahoo.com",
+    "createdAt": "2024-04-29T19:57:55.069Z",
+    "updatedAt": "2024-04-29T19:57:55.069Z"
+  },
+  {
+    "id": "568e3ba3-8d23-4ed9-a8ef-5ee1c0b7e0c5",
+    "name": "Byron Gerlach",
+    "email": "jaden_koss@gmail.com",
+    "createdAt": "2024-04-29T19:58:01.708Z",
+    "updatedAt": "2024-04-29T19:58:01.708Z"
+  },
+  {
+    "id": "3bae4eb3-7180-44df-834b-d7aaf708e62e",
+    "name": "Marilyn Douglas",
+    "email": "orrin.streich-mckenzie@yahoo.com",
+    "createdAt": "2024-04-29T19:58:02.254Z",
+    "updatedAt": "2024-04-29T19:58:02.254Z"
+  },
+  {
+    "id": "2cf549f6-2470-4800-825f-90121a9e443c",
+    "name": "Amber Blanda",
+    "email": "shanon_glover-murazik58@yahoo.com",
+    "createdAt": "2024-04-29T19:58:47.974Z",
+    "updatedAt": "2024-04-29T19:58:47.974Z"
+  },
+  {
+    "id": "f5ee6f7e-50a6-4610-bdbe-d97c07fae487",
+    "name": "Mr. Gerald Vandervort",
+    "email": "Dock.Wiza@yahoo.com",
+    "createdAt": "2024-04-29T20:00:26.353Z",
+    "updatedAt": "2024-04-29T20:00:26.353Z"
+  },
+  {
+    "id": "5c6b0f6f-4b99-4000-a063-cd0f2da1ccdd",
+    "name": "Dr. Wilson Kerluke",
+    "email": "angelita.miller@yahoo.com",
+    "createdAt": "2024-04-29T20:00:28.240Z",
+    "updatedAt": "2024-04-29T20:00:28.240Z"
+  }
+]

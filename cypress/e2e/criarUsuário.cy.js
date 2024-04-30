@@ -7,7 +7,7 @@ describe('Criar Usuário', () => {
   });
   var paginaCadastro = new CadastroPage();
 
-  it('Sucesso', () => {
+  it('Usuário deve ser cadastrado com sucesso', () => {
     const nome = faker.person.fullName().replace('-');
     const email = faker.internet.email();
 
@@ -36,7 +36,7 @@ describe('Criar Usuário', () => {
     cy.contains('span.sc-cPiKLX.feFrSQ', 'O campo e-mail é obrigatório.');
   })
 
-  it('Email inválido deve dar erro', () => {
+  it('Email sem "@" deve dar erro', () => {
     const nome = faker.person.fullName().replace('-');
     const email = 'teste.com';
 
@@ -46,8 +46,41 @@ describe('Criar Usuário', () => {
     paginaCadastro.clickButtonSalvar();
     cy.contains('span.sc-cPiKLX.feFrSQ', 'Formato de e-mail inválido');
   })
+  
+  it('Email sem ".com" deve dar erro', () => {
+    const nome = faker.person.fullName().replace('-');
+    const email = 'teste@testetesteteste';
 
-  it('Nome inválido deve dar erro', () => {
+    cy.get('[href="/users/novo"]').click();
+    paginaCadastro.typeNome(nome);
+    paginaCadastro.typeEmail(email);
+    paginaCadastro.clickButtonSalvar();
+    cy.contains('span.sc-cPiKLX.feFrSQ', 'Formato de e-mail inválido');
+  })
+
+  it('Não é possível cadastrar email com mais de 60 caracteres', () => {
+    const nome = faker.person.fullName().replace('-');
+    const email = 'aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa@aaaaaaaaaaaaaaaaa';
+
+    cy.get('[href="/users/novo"]').click();
+    paginaCadastro.typeNome(nome);
+    paginaCadastro.typeEmail(email);
+    paginaCadastro.clickButtonSalvar();
+    cy.contains('span.sc-cPiKLX.feFrSQ', 'Informe no máximo 60 caracteres para o e-mail');
+  })
+
+  it('Não é possível cadastrar email com menos de 4 caracteres', () => {
+    const nome = faker.person.fullName().replace('-');
+    const email = 'a@a';
+
+    cy.get('[href="/users/novo"]').click();
+    paginaCadastro.typeNome(nome);
+    paginaCadastro.typeEmail(email);
+    paginaCadastro.clickButtonSalvar();
+    cy.contains('span.sc-cPiKLX.feFrSQ', 'Informe pelo menos 4 caracteres para o e-mail');
+  })
+
+  it('Nome numérico deve dar erro', () => {
     const nome = 123456789;
     const email = faker.internet.email();
 
@@ -56,5 +89,27 @@ describe('Criar Usuário', () => {
     paginaCadastro.typeEmail(email);
     paginaCadastro.clickButtonSalvar();
     cy.contains('span.sc-cPiKLX.feFrSQ', 'Formato do nome é inválido.');
+  })
+
+  it('Não é possível cadastrar nome com mais de 100 caracteres', () => {
+    const nome = 'aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa';
+    const email = faker.internet.email();
+
+    cy.get('[href="/users/novo"]').click();
+    paginaCadastro.typeNome(nome);
+    paginaCadastro.typeEmail(email);
+    paginaCadastro.clickButtonSalvar();
+    cy.contains('span.sc-cPiKLX.feFrSQ', 'Informe no máximo 100 caracteres para o nome');
+  })
+
+  it('Não é possível cadastrar nome com menos de 4 caracteres', () => {
+    const nome = 'Aaa'
+    const email = faker.internet.email();
+
+    cy.get('[href="/users/novo"]').click();
+    paginaCadastro.typeNome(nome);
+    paginaCadastro.typeEmail(email);
+    paginaCadastro.clickButtonSalvar();
+    cy.contains('span.sc-cPiKLX.feFrSQ', 'Informe pelo menos 4 letras para o nome');
   })
 })
